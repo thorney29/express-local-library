@@ -5,7 +5,7 @@ var BookInstance = require('../models/bookinstance');
 
 var async = require('async');
 
-exports.index = function(req, res) {   
+exports.home = function(req, res) {   
     
     async.parallel({
         book_count: function(callback) {
@@ -24,7 +24,7 @@ exports.index = function(req, res) {
             Genre.count(callback);
         },
     }, function(err, results) {
-        res.render('index', { title: 'Local Library Home', error: err, data: results });
+        res.render('home', { title: 'Local Library Home', error: err, data: results });
     });
 };
 
